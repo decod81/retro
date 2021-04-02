@@ -4,10 +4,11 @@
 ; This uses static logical device numbers etc. spesific to my card. These have been
 ; checked with pnpdump.exe in dos prior to building this file.
 ;
-; After compiling this source with nasm, one must change jmp XXXX at 0x0003 to point
-; to 0x19F0 and make sure that the last jmp goes to where the origial jump at 0x0003
-; was going. One must also run xtidecfg.com to update the checksums so the ROM
-; extension will run.
+; After compiling this source with nasm, one must run xtidecfg.com to update the
+; checksums so the ROM extension will run. If using some other version of xtide
+; ROM, one must make sure the jump addresses are ok for that particular rom, and
+; also make sure that our added code will be placed in an empty region so it
+; doesn't interfere with the normal function of the ROM.
 
 	incbin  "ide_xt.bin", 0, 3
 	jmp     0x19F0
