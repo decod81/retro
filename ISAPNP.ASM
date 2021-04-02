@@ -70,7 +70,7 @@
 	delay
 
 	; EnterIsolationState();
-	outp    0x279, 1
+	; outp    0x279, 1
 	delay
 
 	; WriteCsn(1);
