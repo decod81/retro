@@ -9,7 +9,9 @@
 ; was going. One must also run xtidecfg.com to update the checksums so the ROM
 ; extension will run.
 
-	incbin  "ide_xt.bin", 0, 0x19F0
+	incbin  "ide_xt.bin", 0, 3
+	jmp     0x19F0
+	incbin  "ide_xt.bin", $, 0x19F0-6
 
 %macro outp 2
 	mov     dx, %1
@@ -71,7 +73,7 @@
 
 	; EnterIsolationState();
 	; outp    0x279, 1
-	delay
+	; delay
 
 	; WriteCsn(1);
 	outp    0x279, 6
